@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+
+{% block body_block %}
+<h2>List Block</h2>
+<div class="container">
+    <form action="{% url 'list:create'%}" method="POST">
+        {% csrf_token %}
+        <label for="title">Title: </label>
+        <input type="text" name="title" placeholder="task">
+        <input type="submit" value="Create">
+    </form>
+    <hr>
+    {% for task in tasks %}
+    <p>{{task.title}}</p>
+    
+    {% endfor %}
+</div>
+{% endblock body_block %}

@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+
+{% block body_block %}
+
+<div class="main-container">
+        <div id="menu-container">
+            <div class="menu header">
+                <h3 style="margin-bottom:20px">To Do List</h3>
+            </div>
+            <div class="add-task-container">
+    
+                 <form action="{% url 'list:create'%}" method="POST">
+                    {%csrf_token%}
+                    <div class="form-group">
+                        <input type="text" placeholder="task" name='title'>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Add" class="btn btn-info">
+                    </div>
+                   
+                </form>
+            </div>
+
+        </div>
+    
+        <div id="task-container">
+            <h3 style="text-align:center; margin-bottom: 20px;">{{user|capfirst}}'s Tasks</h3>
+            {% if task == "" %}
+            <p class="task"> No tasks assigned for {{user|capfirst}}</p>
+            {% else %}
+            {% for task in tasks %}
+            <p class="task">{{task.title}}</p>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock body_block %}
