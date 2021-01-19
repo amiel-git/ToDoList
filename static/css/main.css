@@ -42,9 +42,40 @@ body {
 #task-container {
     padding: 20px;
     flex:2;
-  
+
 }
 
-.task {
+.inner-task-container {
     text-align: center;
+    margin-bottom: 10px;
+}
+
+
+.login-form-container {
+    height: 330px;
+    width: 300px;
+    padding: 30px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background: linear-gradient(to bottom right, rgba(255, 255, 255,0.7), rgba(255, 255, 255,0.3));
+    backdrop-filter: blur(2px);
+    border-radius: 15px;
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.2);
+}
+
+
+.register-form-container {
+    height: 500px;
+    width: 340px;
+    padding: 30px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background: linear-gradient(to bottom right, rgba(255, 255, 255,0.7), rgba(255, 255, 255,0.3));
+    backdrop-filter: blur(2px);
+    border-radius: 15px;
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.2);
 }

@@ -1,13 +1,15 @@
 {% extends 'core/base.html' %}
 
 {% block body_block %}
-<h1>Register</h1>
-<div class="container">
+<div class="register-form-container">
+    <h3 style="color:#68829E;">Register</h3>
     <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    {{user_form.as_p}}
+    <p>{{user_form.username.label}}</p><p>{{user_form.username}}</p>
+    <p>{{user_form.email.label}}</p> <p>{{user_form.email}}</p>
+    <p></p>{{user_form.password.label}}</p><p>{{user_form.password}}</p>
     {{user_profile_info_form.as_p}}
-    <input type="submit" class="btn btn-primary" value="Register">
+    <input type="submit" class="btn btn-primary" value="Register" style="margin-top: 10px;">
     </form>
 </div>
 {% endblock body_block %}

@@ -23,3 +23,11 @@ def create_task_view(request):
         task.save()
         
         return HttpResponseRedirect(reverse('core:index'))
+
+    
+def delete_task_view(request,id):
+
+    task = Task.objects.get(id=id)
+    task.delete()
+    
+    return HttpResponseRedirect(reverse('core:index'))

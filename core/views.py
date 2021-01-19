@@ -9,14 +9,17 @@ from django.urls import reverse
 
 from django.contrib.auth.decorators import login_required
 
-@login_required()
 def index(request):
 
-    tasks = Task.objects.filter(user=request.user)
-    current_user = request.user.username
-    context = {"tasks":tasks,"user":current_user,"is_in":True}
-    
-    return render(request,'core/index.html',context)
+    if request.user.is_authenticated:
+        tasks = Task.objects.filter(user=request.user)
+        current_user = request.user.username
+        context = {"tasks":tasks,"user":current_user,"is_in":True}
+        
+        return render(request,'core/index.html',context)
+
+    else:
+        return HttpResponseRedirect(reverse('core:login'))
         
 
 
